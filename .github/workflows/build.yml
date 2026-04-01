@@ -13,9 +13,10 @@ jobs:
     - name: System update
       run: sudo apt update 
     - name: Install build tools
-      run: sudo apt install build-essential uuid-dev iasl git nasm python-is-python3 g++-aarch64-linux-gnu mkbootimg
-    - name: fix mkbootimg
-      run: pip install gki
+      run: sudo apt install build-essential uuid-dev iasl git nasm python-is-python3 g++-aarch64-linux-gnu
+    - name: Install legacy mkbootimg
+      run: wget http://archive.ubuntu.com/ubuntu/pool/universe/a/android-tools/android-tools-mkbootimg_5.1.1.r38-1.1_amd64.deb && sudo dpkg -i android-tools-mkbootimg_5.1.1.r38-1.1_amd64.deb
+      
     - name: Clone EDK2 repository
       run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
 
