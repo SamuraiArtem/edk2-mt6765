@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    - name: System update
+      run: sudo apt update && sudo apt upgrade 
     - name: Install build tools
       run: sudo apt install build-essential uuid-dev iasl git nasm python-is-python3 g++-aarch64-linux-gnu mkbootimg
     - name: Clone EDK2 repository
