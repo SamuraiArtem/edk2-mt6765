@@ -11,9 +11,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: System update
-      run: sudo apt update && sudo apt upgrade 
+      run: sudo apt update 
     - name: Install build tools
       run: sudo apt install build-essential uuid-dev iasl git nasm python-is-python3 g++-aarch64-linux-gnu mkbootimg
+    - name: fix mkbootimg
+      run: pip install gki
     - name: Clone EDK2 repository
       run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
 
